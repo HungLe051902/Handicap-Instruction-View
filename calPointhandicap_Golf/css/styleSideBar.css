@@ -1,0 +1,239 @@
+/* styles in side bar */
+
+
+/* style for new side bar menu in header */
+
+
+
+#newSideBar{
+  height: 100vh; 
+  width: 70vw; 
+  background-color: white; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+@keyframes example {
+  from {width: 30vw;}
+  to {width: 70vw;}
+}
+
+#newSideBar h3{
+  color: rgba(102,102,102,1);
+}
+
+#newSideBar ul li a{
+  text-decoration: none;
+  color: rgba(102,102,102,0.85);
+  font-weight: bold;
+}
+
+
+
+#newSideBar .list-group-item:active{
+  cursor: pointer;
+  /* background-color: #E8E8E8; */
+}
+
+.mfp-close {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-weight: 300;
+  z-index: 20000;
+  position: fixed;
+  top: -15px;
+  right: 8px;
+  font-size: 40px;
+  background-color: white;
+}
+
+
+@media screen and (min-width: 576px) {
+  #newSideBar, .mfp-close{
+    display: none;
+  };
+}
+
+
+/* end of style new side bar */
+
+
+
+div#sidebar_menu {
+  margin-right: 15px;
+  height: 100vh;
+  border-radius: 5px;
+  background-color: #6b5b95;
+}
+
+div#sidebar_menu h3 {
+  padding: 8px;
+  background-color: #92a8d1;
+  margin-bottom: 0;
+}
+
+/* list unstyled for ul */
+div#sidebar_menu ul {
+  list-style: none;
+}
+
+div#sidebar_menu ul a {
+  text-decoration: none;
+}
+
+.has-child {
+  position: relative;
+}
+
+i#icon_angle {
+  position: absolute;
+  margin: auto;
+  top: 10px;
+  right: 12px;
+  cursor: pointer;
+}
+
+div#sidebar_menu ul li a {
+  color: black;
+  overflow: hidden;
+}
+
+div#sidebar_menu>ul>li>a:hover {
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #acb6e5,
+    #74ebd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #acb6e5,
+    #74ebd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 2px 2px #00ced1;
+}
+
+div#sidebar_menu ul li ul li:hover{
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #acb6e5,
+    #74ebd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #acb6e5,
+    #74ebd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 2px 2px #00ced1;
+}
+
+div#sidebar_menu > ul > li {
+  border-bottom: 1px solid #92a8d1;
+  width: 100%;
+}
+
+/* div#sidebar_menu > ul > li > ul li:first-child {
+  border-top: 1px solid #92a8d1;
+}
+
+div#sidebar_menu > ul > li > ul li:not(:last-child) {
+  border-bottom: 1px solid #92a8d1;
+} */
+
+div#sidebar_menu > ul > li > ul li:hover {
+  color: #ff00ff;
+}
+
+ul.child {
+  display: none;
+}
+
+div#sidebar_menu ul.displayBlock {
+  display: block;
+}
+
+img[src="img/golf2.jpg"] {
+  transition-duration: 2s;
+}
+
+img[src="img/golf2.jpg"]:hover {
+  /* -webkit-animation: rotation 2s infinite linear; */
+  transform: rotateY(180deg);
+}
+/* end styles in side bar */
+
+/* responsive side bar  */
+@media screen and (max-width: 576px) {
+  .sidebar_ {
+    display: none;
+  }
+
+  /* a.icon {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    z-index: 10;
+    padding: 8px;
+    background: #808000;
+  } */
+
+  a.icon:hover {
+    cursor: pointer;
+  }
+
+  .sidebar_.responsive {
+    display: block;
+    position: fixed;
+    left: 10px;
+    top: 60px;
+    background-color: white !important;
+    border: 2px solid #dee2e6 !important;
+    margin: 0 !important;
+  }
+
+  div#sidebar_menu {
+    height: auto;
+  }
+
+  div#sidebar_menu h3 {
+    background-color: white;
+    border-bottom: 1px solid #424242;
+    margin-bottom: 0;
+  }
+
+  .opacity-sidebar{
+    opacity: 0.5;
+  }
+
+  i#new_icon_angle {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    color: rgba(102,102,102,0.85);
+  }
+
+  /* set border bottom li */
+  div#sidebar_menu > ul > li > ul li:not(:last-child) {
+    border-bottom: 1px solid #424242;
+  }
+  div#sidebar_menu > ul > li {
+    border-bottom: 1px solid #424242;
+  }
+
+}
+
+
+
+/* responsive for image in sidebar menu */
+@media screen and (max-width: 992px) {
+  img[src="img/golf2.jpg"] {
+    display: none;
+  }
+}

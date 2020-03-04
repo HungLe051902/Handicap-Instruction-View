@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styleSideBar.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- header -->
+    <div id="header">
+        <!-- slide bar for mobile -->
+        <div id="mobile-sidebar">
+            <div id="newSideBar"  class="" >
+                <ul class="list-group">
+                    <li class="list-group-item"><h3>Mục lục</h3></li>
+                    <li onclick="expandSideMenu()" class="list-group-item"><a class="" href="#term">Thuật ngữ</a></li>
+                    <li class="list-group-item has-child">
+                        <a class="" href="#HandicapIndex">Cách tính Handicap Index</a><i onclick="new_expand()" id="new_icon_angle" class="fas fa-angle-down"></i>
+                        <ul id="myNewChild" class="child" class="list-group">
+                            <li class="list-group-item border-0"><a class="" href="#term">Tần suất cập nhật</a></li>
+                            <li class="list-group-item border-0"><a class="" href="#term">Điều kiện được tính</a></li>
+                            <li class="list-group-item border-0"><a class="" href="#term">Quy tắc tính</a></li>
+                            <li class="list-group-item border-0"><a class="" href="#term">Score Differential</a></li>
+                            <li class="list-group-item border-0"><a class="" href="#term">Các trường hợp đặc biệt</a></li>
+                        </ul>
+                    </li>
+                    <li onclick="expandSideMenu()" class="list-group-item"><a class="" href="#Handicap">Cách tính Course Handicap</a></li>
+                    <li onclick="expandSideMenu()" class="list-group-item"><a class="" href="#PlayingHandicap">Cách tính Playing Handicap</a></li>
+                  </ul>
+            </div>
+            <p type="button" onclick="expandSideMenu()" class="mfp-close">×</p>
+        </div>
+        
+
+        <!-- end of slide bar for mobile -->
+    </div>
+
+    <!-- main -->
+    <div id="main">
+        <div id="abc" class="container-fluid">
+            <nav id="menuBar_fixedTop" class="navbar navbar-expand-sm bg-white fixed-top justify-content-center">
+                    <a href="javascript:void(0);" id="menu-icon"  class="icon justify-content-start" onclick="expandSideMenu()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <img src="img/logo_misa.jpg" alt="">
+              </nav>
+            <div id="intro" class="text-center">
+                <h1>TÍNH ĐIỂM HANDICAP THEO WORLD HANDICAPSYSTEM (WHS)</h1>
+                <p id="text-intro">
+                    &emsp; Theo thông báo từ trước WHS sẽ bắt đầu quá trình 
+                    chuyển đổi handicap của người chơi từ tuần đầu tiên 
+                    của tháng 01/2020. Với mục đích khuyến khích các 
+                    Golfer lấy điểm handicap và duy trì điểm, Giúp các 
+                    Golfer với bất kỳ kỹ năng, giới tính hay quốc tịch 
+                    có thể chuyển handicap đến tất cả các sân trên thế giới 
+                    mà vẫn giữ được sự công bằng khi chơi. MISA sẽ bổ sung 
+                    điểm handicap theo chuẩn của WHS (HDC WHS). Sau đây, 
+                    MISA sẽ giải thích về cách tính điểm của WHS.
+                </p>
+            </div>
+        </div>
+        
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4">
+                    <!-- slide bar for laptop and desktop -->
+                    <div id="sidebar_menu" onblur="myFunction()" class="sticky-top border border-secondary sidebar_ rounded">
+                        <h3>Mục lục</h3>
+                        <ul class="nav flex-column">
+                            <li onclick="myFunction()" class="nav-item">
+                                <a class="nav-link active" href="#term">Thuật ngữ</a>
+                            </li>
+                            <li class="has-child" class="nav-item">
+                                <a href="#HandicapIndex" class="nav-link">Cách tính Handicap Index</a><i onclick="expand()" id="icon_angle" class="fas fa-angle-down"></i>
+                                <ul id="myChild"class="child ">
+                                    <li><a href="#step_2.1">Tần suất cập nhật</a></li>
+                                    <li><a href="#step_2.2">Điều kiện</a></li>
+                                    <li><a href="#step_2.3">Quy tắc</a></li>
+                                    <li><a href="#step_2.4">Cách tính Score Differential</a></li>
+                                    <li><a href="#step_2.5">Các trường hợp đặc biệt</a></li>
+                                </ul>
+                            </li>
+                            <li onclick="myFunction()" class="nav-item">
+                                <a class="nav-link" href="#Handicap">Cách tính Course Handicap</a>
+                            </li>
+                            <li onclick="myFunction()" class="nav-item">
+                                <a class="nav-link" href="#PlayingHandicap">Cách tính Playing Handicap</a>
+                            </li>
+                            
+                        </ul>
+
+                        <div class="text-center mt-5">
+                            <img src="img/golf2.jpg" class="rounded-circle" alt="golf">
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div id="main_content" class="col-sm-9 col-md-9 col-lg-8 col-xl-8 rounded">
+                    <div id="term">
+                        <h3 class="">1. Thuật ngữ</h3>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th><b>STT</b></th>
+                                    <th><b>Thuật ngữ</b></th>
+                                    <th><b>Khái niệm</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><b>Handicap Index</b></td>
+                                    <td>Điểm chấp trên sân tiêu chuẩn (thông số Slope Rating, Course Rating tiêu chuẩn)</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><b>Course Handicap</b></td>
+                                    <td>Điểm chấp trên sân thực tế (thông số Slope Rating, Course Rating của sân)</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><b>Playing Handicap</b></td>
+                                    <td>Điểm chấp sử dụng để thi đấu trên sân thi đấu</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><b>Stroke received/givenon the hole</b></td>
+                                    <td>Điểm chấp được nhận thêm/ trừ bớt tại mỗi hố</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><b>Adjusted Gross score</b></td>
+                                    <td>Số gậy chơi được hiệu chỉnh để tính điểm Handicap</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><b>PCC adjustment</b></td>
+                                    <td>Điểm hiệu chỉnh do lý do ngoại cảnh như điều kiện sân, thời tiết,...</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><b>Score Differentia</b></td>
+                                    <td>Điểm hiệu chỉnh để tính Handicap Index</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td><b>Adjusted Hole Score for Handicap Purpose</b></td>
+                                    <td>Số gậy mỗi hố được hiệu chỉnh để tính điểm Handicap</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td><b>Slope Rating</b></td>
+                                    <td>Độ khó của sân khi người chơi có điểm Handicap Index >0so sánh với người chơi có điểm Handicap Index = 0</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td><b>Course Rating</b></td>
+                                    <td>Độ khó của sân khi người chơi có điểm Handicap Index >0tương đương với điều kiện tại sân</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td><b>Exceptional Score</b></td>
+                                    <td>Điểm có Score Differential thấp bất thường so với Handicap Index</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="HandicapIndex">
+                        <h3 class="">2. Cách tính Handicap Index</h3>
+
+                        <h4 class="" id="step_2.1">2.1 Tần suất cập nhật điểm Handicap Index</h4>
+
+                        <p>Ngay sau khi Scorecard được nhập đủ điều kiện tính điểm Handicap (đủ số hố, được peer reviews, được hiệu chỉnh)</p>
+
+                        <h4 class="" id="step_2.2">2.2 Điều kiện được tính điểm Handicap Index</h4>
+
+                        <div>
+                            <p>Cần đủ tất cả các điều kiện sau đây:</p>
+                            <p>Có điểm của tối thiểu 54 hố (tính cả trận 9 hố và 18 hố)</p>
+                            <p>Chơi đủ số hố tối thiểu ( ít nhất 7 hố với trận 9 hố, ít nhất 14 hố với trận 18 hố)</p>
+                            <p>Ngày nhập Scorecard phải trùng với ngày chơi</p>
+                        </div>
+
+                        <h4 class="" id="step_2.3">2.3 Quy tắc tính điểm Handicap Index</h4>
+
+                        <h5>Bước 1: Tính điểm trung bình cộng (TBC) theo bảng</h5>
+                        <table class="table table-bordered table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th><b>Số ScoreDifferential đang có</b></th>
+                                    <th><b>Điểm trung bình cộng bằng</b></th>
+                                    <th><b>Hệ số điều chỉnh</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Điểm 1 Score Differential thấp nhất</td>
+                                    <td>-2</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Điểm 1 Score Differential thấp nhất</td>
+                                    <td>-1</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Điểm 1 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>TBC 2 Score Differential thấp nhất</td>
+                                    <td>-1</td>
+                                </tr>
+                                <tr>
+                                    <td>7 hoặc 8</td>
+                                    <td>TBC 2 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>9 đến 10</td>
+                                    <td>TBC 3 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>12 đến 14</td>
+                                    <td>TBC 4 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>15 hoặc 16</td>
+                                    <td>TBC 5 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>17 hoặc 18</td>
+                                    <td>TBC 6 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>TBC 7 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>TBC 8 Score Differential thấp nhất</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Bước 2: Hiệu chỉnh điểm TBC thành Handicap Index</h5>
+                        <div>
+                            <div class="ml-3">
+                                <b><i>Hiệu chỉnh lần 1 (Soft cap)</i></b>
+                                <div class="ml-3"> 
+                                    <p>a = |TBC – Low Handicap Index|</p>
+                                    <p>Nếu Điểm TBC < Low Handicap Index: không cần hiệu chỉnh</p>
+                                    <p>Nếu điểmTBC > Low Handicap Index:</p>
+                                    <div class="ml-5">
+                                        <p>Nếu a <=3 thì không cần hiệu chỉnh</p>
+                                        <p>Nếu a> 3 thì  Điểm hiệu chỉnh lần 1 = Low Handicap Index + 3 + (a-3)/2</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <b><i>Hiệu chỉnh lần 2 (Hard cap)</i></b>
+                                <div class="ml-3">
+                                    <p>Nếu Điểm hiệu chỉnh lần 1- Low Handicap Index <= 5: Handicap Index = Điểm hiệu chỉnh lần 1</p>
+                                    <p>Nếu Điểm hiệu chỉnh lần 1- Low Handicap Index > 5:  Handicap Index=Low Handicap Index +5</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="" id="step_2.4">2.4 Cách tính Score Differential</h4>
+                        <h5>Bước 1: Hiệu chỉnh điểm từng hố</h5>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Nếu lần đầu tính điểm Handicap Index</td>
+                                    <td>Điểm tối đa của mỗi hố = Par + 5</td>
+                                </tr>
+                                <tr>
+                                    <td>Kể từ lần thứ 2 tính Handicap Index</td>
+                                    <td>Điểm tối đa của 1 hố = Par + 2 + Stroke received/given on the hole</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ml-3" id="note_in_2">
+                            <p><b><i>Chú ý:</i></b></p>
+                            <p><b>Stroke received:</b></p>
+                            <p>- Áp dụng cho golfer có Handicap Index >0</p>
+                            <p>- Sắp xếp Stroke received lần lượt từ hố có stroke index từ thấp đến cao (1 đến 18)</p>
+
+                            <p><b><i>Stroke given:</i></b></p>
+                            <p>- Áp dụng cho golfer có Handicap Index <code><0</code> </p>
+                            <p>- Sắp xếp Stroke given lần lượt từ hố có stroke index từ cao đến thấp (18 đến 1)</p>
+                            <p>Ví dụ:</p>
+                        </div>
+
+
+                        <!-- Section of vvhung -->
+                        <!-- <div class="section_vvhung">
+                            <div style="align-content:center;">
+                                <div><Strong>Stroke Received</Strong></div>
+                                <p>
+                                    <a><strong>Name: </strong>Jane Smith</a>
+                                    <a><strong>Handicap: </strong>16</a>
+                                    <a><strong>Date: </strong>12/09/20</a>
+                                </p>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr class="Hole">
+                                            <th>Hole</th>
+                                            <td><strong>1</strong></td>
+                                            <td><strong>2</strong></td>
+                                            <td><strong>3</strong></td>
+                                            <td><strong>4</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>6</strong></td>
+                                            <td><strong>7</strong></td>
+                                            <td><strong>8</strong></td>
+                                            <td><strong>9</strong></td>
+                                            <td><strong>Out</strong></td>
+                                        </tr>
+                                        <tr class="Par">
+                                            <td>Par</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>35</td>
+                                        </tr>
+                                        <tr class="Stroke Index">
+                                            <td>Stroke Index</td>
+                                            <td>7</td>
+                                            <td>13</td>
+                                            <td>13</td>
+                                            <td>15</td>
+                                            <td>11</td>
+                                            <td>1</td>
+                                            <td>17</td>
+                                            <td>5</td>
+                                            <td>9</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="Score">
+                                            <td>Score</td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>6</strong></td>
+                                            <td><strong>4</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>3</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>43</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h2></h2>
+                                <p>
+                                </p>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr class="Hole">
+                                            <th>Hole</th>
+                                            <td><strong>10</strong></td>
+                                            <td><strong>11</strong></td>
+                                            <td><strong>12</strong></td>
+                                            <td><strong>13</strong></td>
+                                            <td><strong>14</strong></td>
+                                            <td><strong>15</strong></td>
+                                            <td><strong>16</strong></td>
+                                            <td><strong>17</strong></td>
+                                            <td><strong>18</strong></td>
+                                            <td><strong>In</strong></td>
+                                            <td><strong>Total</strong></td>
+                                        </tr>
+                                        <tr class="Par">
+                                            <td>Par</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>35</td>
+                                            <td>70</td>
+                                            ​
+                                        </tr>
+                                        <tr class="Stroke Index">
+                                            <td>Stroke Index</td>
+                                            <td>18</td>
+                                            <td>12</td>
+                                            <td>4</td>
+                                            <td>14</td>
+                                            <td>8</td>
+                                            <td>2</td>
+                                            <td>16</td>
+                                            <td>6</td>
+                                            <td>10</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="Score">
+                                            <td>Score</td>
+                                            <td><strong>3</strong></td>
+                                            <td><strong>4</strong></td>
+                                            <td><strong>6</strong></td>
+                                            <td><strong>4</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>5</strong></td>
+                                            <td><strong>3</strong></td>
+                                            <td><strong>9</strong></td>
+                                            <td><strong>6</strong></td>
+                                            <td><strong>45</strong></td>
+                                            <td><strong>80</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <br />
+                            <h5>Bước 2: Tạm tính Score Differential</h5>
+                            <div><var>Công thức với trận 18 hố:</var></div>
+                            <div class="calculateRow row">
+                                <span class="calculate">Score Differential</span>
+                                <a> <strong>=</strong> </a>
+                                <span class="calculate">(113/ Slope Rating)</span>
+                                <a> <strong>x</strong> </a>
+                                <span class="calculate">(adjusted gross score - Course Rating - PCC adjustment)</span>
+                            </div>
+                               <div><var>Công thức với trận 9 hố:</var></div>
+                               <div class="calculateRow row">
+                                <span class="calculate">Score Differential</span>
+                                <a> <strong>=</strong> </a>
+                                <span class="calculate">(113/ 9-hole Slope Rating)</span>
+                                <a> <strong>x</strong> </a>
+                                <span class="calculate">(9-hole adjusted gross score - 9-hole Course Rating - (0.5 x PCC
+                                    adjustment))</span>
+                            </div>
+                            <div>
+                                <strong>Chú ý: <br /></strong>
+                                <i>Các thông tin Slope Rating, Course Rating, PCC adjustment do sân cung cấp</i>
+                            </div>
+                            <br />
+                            <h5>Bước 3: Hiệu chỉnh Score Differential</h5>
+                            <table class="table-bordered table-sm" style="border: 1px solid black;">
+                                <tbody>
+                                    <tr>
+                                        <td>Nếu Handicap Index - Score Differential mới </td>
+                                        <td>Không hiệu chỉnh</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nếu 7=< Handicap Index - Score Differential mới < 10 </td>
+                                        <td>
+                                            Trừ 1 điểm cho mỗi Score Differential trong 20 Score Differential gần nhất
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nếu Handicap Index >=10 </td>
+                                        <td>Trừ 2 điểm cho mỗi Score Differential trong 20 Score Differential gần nhất</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr />
+                            <h4 class="" id="step_2.5">2.5 Các trường hợp đặc biệt khi tính Handicap Index</h4>
+                            <h5>Trường hợp 1: Golfer chưa hoàn thành tất cả hố chơi</h5>
+                            <h6 style="margin-left: 16px">Bước 1: Làm tròn số hố chơi</h6>
+                            <div>
+                                <a style="margin-left: 40px">- Chơi 7,8 hố thì làm tròn lên chơi 9 hố</a>
+                                <br />
+                                <a style="margin-left: 40px">- Chơi 14-17 hố thì làm tròn lên chơi 18 hố</a>
+                            </div>
+                            <h6>Bước 2: Bổ sung các điểm của hố thiếu</h6>
+            ​
+                            <h5>Trường hợp 2: Golfer nhập Scorecard quá giới hạn 1 ngày sau khi chơi (ngày chơi và ngày nhập scorecard khác nhau)</h5>
+                            <div style="text-align: center;">
+                                <i>Hiệp hội Golf sẽ quyết định về việc phạt điểm Gross score hoặc không chấp nhận scorecard</i>
+                                <hr />
+                            </div>
+                        </div> -->
+                        
+
+                        
+                        
+                    </div>
+                    <!-- end of section of vvhung-->
+                        
+                    <!-- Section of vvhung -->
+                    <!-- <div class="section_vvhung">
+                        <div id="Handicap">
+                            <h3 class="">3. Cách tính Course Handicap</h3>
+                            <h5>Trận 18 hố: </h5>
+                            <div class="calculateRow row">
+                                <span class="calculate4">Course Handicap</span>
+                                <a> <strong>=</strong> </a>
+                                <span class="calculate4">Handicap Index</span>
+                                <a> <strong>x</strong> </a>
+                                <span class="calculate4">(Slope Rating / 113)</span>
+                                <a> <strong>+</strong> </a>
+                                <span class="calculate4">(Course Rating - par)</span>
+                            </div>
+                            <h5>Trận 9 hố: </h5>
+                            <div class="calculateRow row">
+                                <span class="calculate4">Course Handicap</span>
+                                <a> <strong>=</strong> </a>
+                                <span class="calculate4">Handicap Index</span>
+                                <a> <strong>x</strong> </a>
+                                <span class="calculate4">(9-hole Slope Rating / 113)</span>
+                                <a> <strong>+</strong> </a>
+                                <span class="calculate4">(2 x 9-hole Course Rating - 2 x 9-hole par)</span>
+                            </div>
+                  ​
+                            <h6><strong>Chú ý:</strong></h6>
+                            <div></div><i> Điểm Course Handicap được làm tròn thành số nguyên</i>
+                            <div>- nếu điểm từ .5 trở lên thì làm tròn lên</div>
+                            <div>- nếu điểm dưới .5 thì làm tròn xuống</div>
+                        </div>
+    
+                        
+    
+                        <div id="PlayingHandicap">
+                            <h3 class="">4. Cách tính Playing Handicap</h3>
+                            <h6>
+                                <strong>Nếu điểm số của những người chơi đều được tính trên các sân có Tổng Par như nhau</strong>
+                            </h6>
+                            <div class="calculateRow row"
+                            style="justify-content: center; align-items:center;text-align:center; margin: 8px 10px; padding: 8px 20px">
+                            <span class="calculate">Playing HandiCap</span>
+                            <a> <strong>=</strong> </a>
+                            <span class="calculate">Course Handicap</span>
+                            <a> <strong>x</strong> </a>
+                            <span class="calculate">Handicap Allowance</span>
+                        </div>
+                        <hr />
+                        <h6>
+                            <strong>Nếu điểm số của 1 người chơi được tính trên sân có Tổng Par cao hơn những người còn
+                                lại </strong>
+                        </h6>
+                        <div class="calculateRow row"
+                            style="justify-content: center; align-items:center;text-align:center; margin: 8px 10px; padding: 8px 20px">
+                            <span class="calculate">Playing Handicap</span>
+                            <a> <strong>=</strong> </a>
+                            <span class="calculate">(Course Handicap x handicap allowance)</span>
+                            <a> <strong>+ </strong> </a>
+                            <span class="calculate">difference in pars</span>
+                        </div>
+                      </div>
+                    </div> -->
+                
+                    <!-- end section of vvhung -->
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- footer -->
+    <div id="footer">
+
+    </div>
+
+
+    <!-- Bootstrap 4 CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- My javascript -->
+    <script src="js/events.js"></script>
+</body>
+</html>

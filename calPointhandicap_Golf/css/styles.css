@@ -1,0 +1,252 @@
+
+body{
+
+    background-color: #DCDCDC;
+}
+
+#mobile-sidebar{
+    display: none;
+}
+
+
+/* styles for intro and menuBar in main */
+
+div#main nav#menuBar_fixedTop{
+    visibility: hidden;
+    
+}
+
+div#main nav#menuBar_fixedTop a{
+    position: absolute;
+    left: 10px;
+    margin: auto;
+    color: gray;
+}
+
+div#main nav#menuBar_fixedTop a i{
+    font-size: 18px;
+}
+
+div#main nav#menuBar_fixedTop img{
+    height: 60px;
+}
+
+
+
+.container-fluid {
+    content: "";
+    display: flex;
+    justify-content: center;
+    /* background-image: url("../img/background_golf.jpg"); */
+    background: 
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3)
+    ),url("../img/background_golf.jpg");
+    overflow: hidden;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container-fluid h1{
+    z-index: 999;
+    text-shadow: 0 1px 1px black;
+}
+
+.container-fluid div#intro{
+    padding-top: 20vh;
+}
+
+/*  */
+
+div#main .container>.row{
+    background-color: #DCDCDC;
+}
+
+/* styles for thead in all tables */
+thead {
+    background-color: #D3D3D3;
+  }
+  /* end of styles for thead */
+
+
+
+
+div.container {
+  border-radius: 10px;
+  background-color: white;
+  padding-right: 15px;
+}
+
+div#main_content{
+    padding: 8px; 
+    margin-left: -15px;
+    background-color: white;
+}
+
+/* responsive in mobile */
+@media screen and (max-width: 576px){
+    p#text-intro{
+        display: none;
+    }
+
+    
+    .container-fluid h1{
+        font-size: 7vw;
+        font-weight: bolder;
+    }
+
+    div#main{
+        font-size: 3vw;
+    }
+
+    .container-fluid{
+        margin-left: -15px;
+        width: 100%;
+        margin: 0;
+    }
+
+    div#main_content{
+        margin-left: 8px;
+        margin-right: 8px;
+        border: none !important;
+        padding-top: 0px !important;
+        margin-top: -10px !important;
+    }
+
+    span{
+        font-size: 2.5vw;
+        min-width: 10px;
+        max-height: 100px;
+        height: 40px;
+    }
+
+    div#main nav#menuBar_fixedTop{
+        visibility: visible;
+    }
+
+    body, div#main .container>.row{
+        background-color: white;
+    }
+
+    /* for larger text in p and table */
+
+    div#main .table th, div#main .table td, p{
+        font-size: 16px;
+    }
+
+    /* styles for vvhung */
+    .section_vvhung, .section_vvhung span {
+        font-size: 16px;
+    }
+
+}
+
+
+/* end styles of intro in main */
+
+/* style of vvhung */
+
+.section_vvhung{
+    font-size: 8px;
+}
+
+.section_vvhung span.calculate {
+    border-radius: 10px;
+    display: flex;
+    margin: 6px;
+    max-width: 200px;
+    background-color: #4970e3;
+    padding: 20px;
+    overflow: initial;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.section_vvhung span.calculate4 {
+    border-radius: 10px;
+    display: flex;
+    margin: 6px;
+    min-width: 20px;
+    max-width: 140px;
+    background-color: #4970e3;
+    padding: 20px;
+    overflow: initial;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.section_vvhung span.calculate4 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.section_vvhung span.calculate {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.section_vvhung .calculateRow {
+    justify-content: center; 
+    align-items:center;
+    padding: 8px 20px;
+} 
+
+.section_vvhung .table-sm.table{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.section_vvhung .Par{
+    background-color: #c3d8fa;
+}
+
+.section_vvhung .Hole{
+    background-color: rgb(11, 136, 238);
+}
+
+.section_vvhung .table-sm th{
+    border: 1px solid black;
+}
+
+.section_vvhung .table-sm tr.Hole th:first-child{
+    color: white;
+}
+
+.section_vvhung .table-sm td{
+    min-width: 30px;
+    border: 1px solid black;
+}
+
+.section_vvhung .table-sm .Hole td{
+    color: white;
+    
+}
+
+@media screen and (max-width: 576px) {
+    span.calculate {
+        font-size: 10px ;
+        max-width: 75px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin: 2px;
+    }
+
+    .table-sm {
+        font-size: 10px;
+    }
+
+    .table-sm td{
+        min-width: unset;
+        border: 1px solid black;
+    }    
+    
+    .table-sm th {
+        max-width: 50px;
+        border: 1px solid black;
+    }
+}
+
+/* end style of vvhung */
